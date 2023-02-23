@@ -1,4 +1,4 @@
-const createMazeFunctionality = (function() {
+(function() {
     const maze = [
         [0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 1, 0, 1, 1, 0, 1, 1, 1, 0],
@@ -23,7 +23,7 @@ const createMazeFunctionality = (function() {
     function createPoligon(){
         for (let i = 0; i < maze.length; i++) {
             for(let j = 0; j < maze[i].length; j++) {
-                if (maze[i][j]==0) {
+                if (maze[i][j]===0) {
                     var element = document.getElementById("maze");
                     var rectangle = element.getContext("2d");
                     rectangle.beginPath();
@@ -54,7 +54,7 @@ const createMazeFunctionality = (function() {
     function deletePreviousState(row, column){
         for (let i = 0; i < maze.length; i++) {
             for(let j = 0; j < maze[i].length; j++) {
-                if (i == row && j == column && maze[i][j] == 0) {
+                if (i == row && j === column && maze[i][j] === 0) {
                     var element = document.getElementById("maze");
                     var rectangle = element.getContext("2d");
                     rectangle.beginPath();
@@ -62,7 +62,7 @@ const createMazeFunctionality = (function() {
                     rectangle.fillStyle = "#cce6ff";
                     rectangle.fill();
                 }else {
-                    if (i == row && j == column && maze[i][j] == 1) {
+                    if (i == row && j === column && maze[i][j] === 1) {
                         var element = document.getElementById("maze");
                         var rectangle = element.getContext("2d");
                         rectangle.beginPath();
@@ -81,7 +81,7 @@ const createMazeFunctionality = (function() {
         for (let i = 0; i < maze.length; i++) {
             for(let j = 0; j < maze[i].length; j++) {
 
-                if (i  == currentPosition[0] && j ==  currentPosition[1] && i + row == endPosition[0] && j + col == endPosition[1]) {
+                if (i  == currentPosition[0] && j ===  currentPosition[1] && i + row === endPosition[0] && j + col === endPosition[1]) {
                     currentPosition [0] = i + row;
                     currentPosition[1] = j + col;
                     deletePreviousState(i, j);
@@ -91,7 +91,7 @@ const createMazeFunctionality = (function() {
                     
                 }
 
-                if (i  == currentPosition[0] && j ==  currentPosition[1] && maze[i + row] [j + col] == 1) {
+                if (i  == currentPosition[0] && j ===  currentPosition[1] && maze[i + row] [j + col] === 1) {
                     currentPosition [0] = i + row;
                     currentPosition[1] = j + col;
                     deletePreviousState(i, j);
@@ -154,7 +154,7 @@ const createMazeFunctionality = (function() {
     
         for (var i = 0; i < direction.length; i++) {
             // Perform this check first:
-            if (direction[i][0] == end[0] && direction[i][1] == end[1]) {
+            if (direction[i][0] === end[0] && direction[i][1] === end[1]) {
             // return the path that led to the find
             return path.concat([end]); 
             }
